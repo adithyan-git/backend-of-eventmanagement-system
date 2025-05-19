@@ -18,14 +18,14 @@ exports.registration = async (req,res) =>{
     try {
         const hashedPassword = await bcrypt.hash(password,10);
 
-        if( !req.file){
-           return res.status(400).json({
-                success:false,
-                message:'please upload an image'
-            });
-        }
+        // if( !req.file){
+        //    return res.status(400).json({
+        //         success:false,
+        //         message:'please upload an image'
+        //     });
+        // }
 
-        const filePath = req.file.path;
+        const filePath = req?.file?.path ?? '';
 
         const registration = await registrationDetail.create({
             fullname,
