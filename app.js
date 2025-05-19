@@ -14,6 +14,10 @@ app.use(cors({
 
 const router = require('./Routes/allRoutes');
 
+app.get('/',(req,res)=>{
+    res.send('server is working')
+})
+
 app.use('/Uploads',express.static(path.join(__dirname,'Uploads')))
 app.use(router); 
 module.exports = app;
